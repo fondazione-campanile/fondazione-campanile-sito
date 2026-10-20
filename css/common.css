@@ -1,0 +1,43 @@
+/* ===== FONT ===== */
+@font-face {
+  font-family: "EB Garamond";
+  src: url("../assets/fonts/EBGaramond-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Figtree";
+  src: url("../assets/fonts/Figtree-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ===== STILI ===== */
+:root {
+  --blu-notte: #1F3A5F;
+  --terracotta: #C0643A;
+  --avorio: #F7F4EE;
+
+  --font-titoli: "Figtree", system-ui, sans-serif;
+  --font-testo: "EB Garamond", Georgia, serif;
+}
+
+/* ===== QUADRO ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
