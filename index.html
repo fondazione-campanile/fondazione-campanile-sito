@@ -7,6 +7,17 @@
   <meta name="description" content="Fondazione senza scopo di lucro a Valderice (TP) per l'inclusione delle persone con disabilità e in condizione di fragilità.">
   <meta name="robots" content="noindex">
 
+  <script>
+    {
+      try {
+        const ridotto = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!ridotto && !sessionStorage.getItem('intro-vista')) {
+          sessionStorage.setItem('intro-vista', '1');
+          document.documentElement.classList.add('intro-attiva');
+        }
+      } catch {}
+    }
+  </script>
 
   <link rel="icon" href="assets/favicon/favicon-32.png?v=2" sizes="32x32" type="image/png">
   <link rel="icon" href="assets/favicon/favicon-fac.svg?v=2" type="image/svg+xml">
@@ -20,8 +31,15 @@
   <script src="js/progetti.js" defer></script>
   <script src="js/zoom.js" defer></script>
   <script src="js/zoom.js" defer></script>
+  <script src="js/intro.js" defer></script>
   <script src="js/animazioni.js" defer></script>
 </head>
+
+<div class="intro" aria-hidden="true">
+  <img class="intro__logo intro__logo--wip" src="assets/img/Logo-FonAntCamp-WIP-01.png" alt="">
+  <img class="intro__logo intro__logo--finale" src="assets/img/Logo-FonAntCamp-Bianco-su-Nero.png" alt="">
+</div>
+
 <body>
 
   <header class="header">

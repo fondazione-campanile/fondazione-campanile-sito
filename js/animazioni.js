@@ -48,17 +48,27 @@
       });
     }, { rootMargin: '0px 0px -20% 0px', threshold: 0 });
 
-    requestAnimationFrame(() => {
+    // Avvio dell'osservazione (dopo due frame, così lo stato nascosto è già disegnato)
+    const avvia = () => {
       requestAnimationFrame(() => {
-        document.querySelectorAll('[data-rivela], [data-scrittura]').forEach((elemento) => {
-          osservatore.observe(elemento);
-        });
+        requestAnimationFrame(() => {
+          document.querySelectorAll('[data-rivela], [data-scrittura]').forEach((elemento) => {
+            osservatore.observe(elemento);
+          });
 
-        const contenitori = new Set(
-          Array.from(document.querySelectorAll('.fascia'), (fascia) => fascia.parentElement)
-        );
-        contenitori.forEach((contenitore) => osservatoreFasce.observe(contenitore));
+          const contenitori = new Set(
+            Array.from(document.querySelectorAll('.fascia'), (fascia) => fascia.parentElement)
+          );
+          contenitori.forEach((contenitore) => osservatoreFasce.observe(contenitore));
+        });
       });
-    });
+    };
+
+    // Se c'è l'intro, si aspetta che finisca; altrimenti si parte subito
+    if (document.documentElement.classList.contains('intro-attiva')) {
+      document.addEventListener('intro-finita', avvia, { once: true });
+    } else {
+      avvia();
+    }
   }
 }

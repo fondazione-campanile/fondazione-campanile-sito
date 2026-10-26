@@ -1345,3 +1345,68 @@ body:has(.zoom[open]) {
     opacity: 1;
   }
 }
+
+/* ===== INTRO ===== */
+.intro {
+  display: none;
+}
+
+.intro-attiva {
+  overflow: hidden;
+}
+
+.intro-attiva .intro {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  background-color: var(--blu-notte);
+  cursor: pointer;
+  animation: intro-uscita 0.6s ease 3s forwards;
+}
+
+.intro-attiva .intro--salto {
+  animation: intro-salto 0.4s ease forwards;
+}
+
+.intro__logo {
+  grid-area: 1 / 1;
+  width: min(70vw, 22rem);
+  height: auto;
+}
+
+.intro__logo--wip {
+  animation: intro-lampeggio 2s ease 0.2s both;
+}
+
+.intro__logo--finale {
+  animation: intro-comparsa 0.8s ease 1.4s both;
+}
+
+.intro-attiva .hero__img {
+  animation-play-state: paused;
+}
+
+@keyframes intro-lampeggio {
+  0%   { opacity: 0; }
+  20%  { opacity: 1; }
+  30%  { opacity: 0; }
+  40%  { opacity: 1; }
+  50%  { opacity: 0; }
+  60%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes intro-comparsa {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes intro-uscita {
+  to { opacity: 0; visibility: hidden; }
+}
+
+@keyframes intro-salto {
+  to { opacity: 0; visibility: hidden; }
+}
