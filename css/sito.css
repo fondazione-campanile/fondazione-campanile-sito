@@ -1280,6 +1280,19 @@ body:has(.zoom[open]) {
   }
 }
 
+/* --- Scrittura dei titoli --- */
+@media (prefers-reduced-motion: no-preference) {
+  .animazioni [data-scrittura] .lettera {
+    opacity: 0;
+    transition: opacity 0.05s linear;
+    transition-delay: calc(var(--ritardo, 0s) + var(--i) * var(--velocita, 0.04s));
+  }
+
+  .animazioni [data-scrittura].rivelato .lettera {
+    opacity: 1;
+  }
+}
+
 /* --- Foto della hero --- */
 @media (prefers-reduced-motion: no-preference) {
   .hero__img {
