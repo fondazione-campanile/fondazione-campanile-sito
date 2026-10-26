@@ -19,6 +19,8 @@
   <script src="js/impegni.js" defer></script>
   <script src="js/progetti.js" defer></script>
   <script src="js/zoom.js" defer></script>
+  <script src="js/zoom.js" defer></script>
+  <script src="js/animazioni.js" defer></script>
 </head>
 <body>
 
@@ -57,13 +59,13 @@
     <section id="chi-siamo" class="section section--avorio chi-siamo" aria-labelledby="chi-siamo-titolo">
       <div class="chi-siamo__testo">
         <h2 id="chi-siamo-titolo" class="section__title">Chi siamo</h2>
-        <p>La <strong>Fondazione Antonio Campanile</strong> è un ente senza scopo di lucro nato nel 2026 a Valderice, in provincia di Trapani, per iniziativa della <strong>Fondazione Auxilium</strong>.</p>
-        <p>Lavoriamo perché le persone con disabilità e in condizione di fragilità abbiano ciò che spetta a chiunque: <strong>un posto in cui vivere, qualcosa da fare, persone su cui contare</strong>. Collaboriamo con enti pubblici, privati e realtà del territorio, a partire dai servizi della Fondazione Auxilium come il <strong>Centro Ambulatoriale di Riabilitazione</strong>.</p>
+        <p data-rivela>La <strong>Fondazione Antonio Campanile</strong> è un ente senza scopo di lucro nato nel 2026 a Valderice, in provincia di Trapani, per iniziativa della <strong>Fondazione Auxilium</strong>.</p>
+        <p data-rivela style="--ritardo: 0.15s">Lavoriamo perché le persone con disabilità e in condizione di fragilità abbiano ciò che spetta a chiunque: <strong>un posto in cui vivere, qualcosa da fare, persone su cui contare</strong>. Collaboriamo con enti pubblici, privati e realtà del territorio, a partire dai servizi della Fondazione Auxilium come il <strong>Centro Ambulatoriale di Riabilitazione</strong>.</p>
       </div>
 
-      <img class="chi-siamo__foto" src="assets/photo/Villa_Betania_Panorama.jpg" alt="Panorama di Valderice" width="1024" height="749" loading="lazy">
+      <img class="chi-siamo__foto" data-rivela style="--ritardo: 0.3s" src="assets/photo/Villa_Betania_Panorama.jpg" alt="Panorama di Valderice" width="1024" height="749" loading="lazy">
 
-      <p class="chi-siamo__motto">Radicati nel territorio, aperti a tutti</p>
+      <p class="chi-siamo__motto" data-rivela>Radicati nel territorio, aperti a tutti</p>
     </section>
 
     <!-- ===== DOPO DI NOI ===== -->
@@ -73,7 +75,7 @@
       <p class="fascia">Cosa succede a una persona con disabilità quando la sua famiglia non c'è o non può sostenerla?</p>
 
       <div class="dopo-di-noi__corpo">
-        <p class="dopo-di-noi__intro">Il “Dopo di noi” nasce per garantire che, quando quel sostegno viene a mancare, sia stata coltivata una condizione di autonomia e/o assistenza nel trovare delle soluzioni abitative e sociali:</p>
+        <p class="dopo-di-noi__intro" data-rivela>Il “Dopo di noi” nasce per garantire che, quando quel sostegno viene a mancare, sia stata coltivata una condizione di autonomia e/o assistenza nel trovare delle soluzioni abitative e sociali:</p>
 
         <ul class="pilastri">
           <li class="pilastro">
@@ -106,7 +108,7 @@
           </li>
         </ul>
 
-        <p class="dopo-di-noi__nota">Quadri realizzati nei progetti artistici presso Villa Betania (Valderice).</p>
+        <p class="dopo-di-noi__nota" data-rivela>Quadri realizzati nei progetti artistici presso Villa Betania (Valderice).</p>
       </div>
     </section>
 
@@ -114,10 +116,12 @@
     <section id="impegni" class="section section--avorio impegni" aria-labelledby="impegni-titolo">
       <h2 id="impegni-titolo" class="section__title">Impegni</h2>
 
-        <p class="fascia">Prendersi cura, aprire porte, costruire luoghi</p>
       <div class="impegni__layout">
 
-        <div class="impegni__grafica">
+        <div class="impegni__colonna">
+          <p class="fascia fascia--sospesa fascia--blu">Prendersi cura, aprire porte, costruire luoghi</p>
+
+          <div class="impegni__grafica" data-rivela>
           <svg class="impegni__logo" viewBox="0 0 853 585" aria-hidden="true">
             <path class="logo__parte logo__porta" data-area="lavoro" fill="#1f3a5f" d="M551.4,481.17c-.66-52.11-.17-120.27-.08-172.09-.35-2.77-.69-5.61-1-8.46-8.8-74.07-76.51-125.17-150-114.18-54.7,8.21-106.9,54.21-111.15,122.69.08,49.95-.09,164.39-.09,172h.27L289,482l238.47-.91c1,0,2,0,3,.08Z"/>
 
@@ -158,9 +162,10 @@
             <button class="impegni__scheda" id="scheda-lavoro" type="button" role="tab" aria-selected="false" aria-controls="pannello-lavoro" tabindex="-1" data-area="lavoro">Lavoro</button>
             <button class="impegni__scheda" id="scheda-luoghi" type="button" role="tab" aria-selected="false" aria-controls="pannello-luoghi" tabindex="-1" data-area="luoghi">Luoghi</button>
           </div>
+          </div>
         </div>
 
-        <div class="impegni__pannelli">
+        <div class="impegni__pannelli" data-rivela style="--ritardo: 0.2s">
           <div class="impegni__pannello" id="pannello-cura" role="tabpanel" aria-labelledby="scheda-cura" tabindex="0">
             <h3 class="impegni__nome">Cura</h3>
             <p class="impegni__testo">Al centro del nostro simbolo c'è una persona: è da lì che parte ogni cosa che facciamo. Ci prendiamo cura di bambini e ragazzi, adulti e anziani in condizione di fragilità, con un'assistenza che unisce aspetti sanitari, sociali, psicologici ed educativi. Per i più giovani significa accompagnarne la crescita; per tutti, ricevere un'attenzione costruita sulla propria storia.</p>
@@ -188,7 +193,7 @@
       <h2 id="progetti-titolo" class="section__title">Progetti</h2>
         <p class="fascia">Ogni progetto è un passo concreto: ecco cosa stiamo costruendo</p>
 
-      <div class="progetti__galleria">
+      <div class="progetti__galleria" data-rivela>
         <div class="progetti__lista" id="progetti-lista" role="region" aria-label="Elenco dei progetti" tabindex="0">
 
           <article class="progetto" aria-labelledby="progetto-galleria-titolo">
@@ -260,16 +265,16 @@
 
       <div class="dona__layout">
         <div class="dona__colonna">
-          <p class="fascia fascia--avorio">Ogni gesto costruisce un futuro</p>
+                    <p class="fascia fascia--sospesa fascia--avorio">Ogni gesto costruisce un futuro</p>
 
-          <ul class="dona__garanzie">
+          <ul class="dona__garanzie" data-rivela>
             <li><strong>Nessun utile distribuito.</strong> Gli avanzi di gestione restano nella fondazione e servono alle sue attività.</li>
             <li><strong>Una gestione controllata.</strong> Un revisore legale vigila sulla corretta amministrazione della fondazione.</li>
             <li><strong>Bilancio annuale.</strong> Ogni anno il Consiglio di amministrazione approva il bilancio della fondazione.</li>
           </ul>
         </div>
 
-        <div class="dona__scheda">
+        <div class="dona__scheda" data-rivela style="--ritardo: 0.2s">
           <p class="dona__frase">Con una donazione diventi parte di questo progetto: ci aiuti a dare a chi è più fragile una casa, un lavoro, una comunità.</p>
           <a class="dona__pulsante">Dona ora</a>
           <p class="dona__nota">Il pagamento avviene su una piattaforma esterna sicura: i dati della tua carta non passano dal nostro sito.</p>

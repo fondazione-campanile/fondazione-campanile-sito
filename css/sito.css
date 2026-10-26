@@ -284,6 +284,18 @@ body {
   color: var(--blu-notte);
 }
 
+.fascia--blu {
+  background-color: var(--blu-notte);
+  color: var(--avorio);
+}
+
+.fascia--sospesa {
+  margin: 0 auto 2.5rem;
+  padding: 0.875rem 2rem;
+  text-align: center;
+  border-radius: 999px;
+}
+
 /* ===== HERO ===== */
 .hero {
   position: relative;
@@ -583,6 +595,11 @@ body {
 .impegni__layout {
   display: grid;
   gap: 2.5rem;
+}
+
+.impegni__colonna {
+  display: grid;
+  gap: 2rem;
 }
 
 .impegni__grafica {
@@ -1243,5 +1260,38 @@ body:has(.zoom[open]) {
   .dona__scheda {
     justify-items: start;
     text-align: left;
+  }
+}
+
+/* ===== ANIMAZIONI ===== */
+
+/* --- Comparsa sfumata --- */
+@media (prefers-reduced-motion: no-preference) {
+  .animazioni [data-rivela] {
+    opacity: 0;
+    transform: translateY(1.5rem);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    transition-delay: var(--ritardo, 0s);
+  }
+
+  .animazioni [data-rivela].rivelato {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* --- Foto della hero --- */
+@media (prefers-reduced-motion: no-preference) {
+  .hero__img {
+    animation: hero-foto 1.6s ease both;
+  }
+}
+
+@keyframes hero-foto {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
