@@ -1293,6 +1293,30 @@ body:has(.zoom[open]) {
   }
 }
 
+/* --- Fasce --- */
+@media (prefers-reduced-motion: no-preference) {
+  .animazioni .fascia {
+    transition:
+      transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+      clip-path 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+      color 0.5s ease 0.6s;
+  }
+
+  .animazioni .fascia:not(.rivelato) {
+    color: transparent;
+    transform: translateX(-100%);
+  }
+
+  .animazioni .fascia--sospesa {
+    clip-path: inset(0 0 0 0 round 999px);
+  }
+
+  .animazioni .fascia--sospesa:not(.rivelato) {
+    transform: none;
+    clip-path: inset(0 50% 0 50% round 999px);
+  }
+}
+
 /* --- Foto della hero --- */
 @media (prefers-reduced-motion: no-preference) {
   .hero__img {

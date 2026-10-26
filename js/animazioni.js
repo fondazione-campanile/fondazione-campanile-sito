@@ -24,9 +24,9 @@
 
   if (!movimentoRidotto.matches && 'IntersectionObserver' in window) {
     document.documentElement.classList.add('animazioni');
-
     document.querySelectorAll('[data-scrittura]').forEach(preparaScrittura);
 
+    // Comparse e titoli: osservati direttamente
     const osservatore = new IntersectionObserver((voci) => {
       voci.forEach((voce) => {
         if (voce.isIntersecting) {
@@ -34,16 +34,30 @@
           osservatore.unobserve(voce.target);
         }
       });
-    }, {
-      rootMargin: '0px 0px -10% 0px',
-      threshold: 0.1
-    });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+
+    // Fasce: si osserva il contenitore, perché la fascia nascosta è fuori schermo
+    const osservatoreFasce = new IntersectionObserver((voci) => {
+      voci.forEach((voce) => {
+        if (voce.isIntersecting) {
+          voce.target.querySelectorAll(':scope > .fascia').forEach((fascia) => {
+            fascia.classList.add('rivelato');
+          });
+          osservatoreFasce.unobserve(voce.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -20% 0px', threshold: 0 });
 
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
         document.querySelectorAll('[data-rivela], [data-scrittura]').forEach((elemento) => {
           osservatore.observe(elemento);
         });
+
+        const contenitori = new Set(
+          Array.from(document.querySelectorAll('.fascia'), (fascia) => fascia.parentElement)
+        );
+        contenitori.forEach((contenitore) => osservatoreFasce.observe(contenitore));
       });
     });
   }
