@@ -554,6 +554,11 @@ body {
 }
 
 /* --- Animazione (attiva solo se il JS aggiunge la classe) --- */
+.pilastri--animati .pilastro::after {
+  transform: translateX(-50%) scaleY(var(--avanzamento, 0));
+  transform-origin: top;
+}
+
 .pilastri--animati .pilastro::before {
   background-color: var(--blu-notte);
   transition: background-color 0.4s ease;
@@ -564,14 +569,11 @@ body {
   transition: color 0.4s ease;
 }
 
-.pilastri--animati .pilastro--attivo .pilastro__nome {
-  color: var(--terracotta-chiaro);
-}
-
 .pilastri--animati .pilastro__testo,
 .pilastri--animati .pilastro__zoom {
+  --da: -1.5rem;
   opacity: 0;
-  transform: translateY(1.5rem);
+  transform: translateX(var(--da));
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
@@ -580,8 +582,19 @@ body {
   transition: opacity 0.6s ease 0.1s, transform 0.6s ease 0.1s, visibility 0.6s;
 }
 
+@media (min-width: 48rem) {
+  .pilastri--animati .pilastro:nth-child(odd) .pilastro__testo,
+  .pilastri--animati .pilastro:nth-child(even) .pilastro__zoom {
+    --da: 1.5rem;
+  }
+}
+
 .pilastri--animati .pilastro--attivo::before {
   background-color: var(--terracotta);
+}
+
+.pilastri--animati .pilastro--attivo .pilastro__nome {
+  color: var(--terracotta-chiaro);
 }
 
 .pilastri--animati .pilastro--attivo .pilastro__testo,
