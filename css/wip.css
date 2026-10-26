@@ -35,7 +35,7 @@ body {
 
 .wip__title {
   margin: 0;
-  font-family: var(--font-testo);
+  font-family: var(--font-titoli);
   font-weight: 400;
   font-size: clamp(2.25rem, 8vw, 4.5rem);
   line-height: 1.1;
@@ -61,7 +61,7 @@ body {
 
 .footer__copy {
   margin: 0;
-  font-family: var(--font-titoli);
+  font-family: var(--font-testo);
   font-size: 0.875rem;
   color: var(--blu-notte);
 }
