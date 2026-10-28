@@ -944,6 +944,10 @@ body {
   border-radius: 0.5rem;
 }
 
+.progetto__logo--quadrato {
+  width: min(25%, 5.5rem);
+}
+
 .progetto__corpo {
   display: grid;
   align-content: start;
