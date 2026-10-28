@@ -612,38 +612,41 @@ body {
 
 .impegni__colonna {
   display: grid;
-  gap: 2rem;
+  gap: 1.5rem;
+}
+
+.impegni__colonna .fascia {
+  margin-bottom: 0;
 }
 
 .impegni__grafica {
+  --larghezza-logo: min(85%, 18rem);
+  container-type: inline-size;
   display: grid;
   justify-items: center;
   gap: 1.5rem;
 }
 
 .impegni__logo {
-  width: min(70%, 16rem);
+  width: var(--larghezza-logo);
   height: auto;
-}
-
-.richiamo {
-  display: none;
 }
 
 /* --- Pulsanti --- */
 .impegni__schede {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 0.5rem;
+  width: calc(var(--larghezza-logo) * 500 / 510);
 }
 
 .impegni__scheda {
-  padding: 0.625rem 1rem;
+  min-width: 0;
+  padding: 0.75rem 0.25rem;
   font: inherit;
   font-weight: 600;
-  font-size: 0.875rem;
-  letter-spacing: 0.15em;
+  font-size: clamp(0.8125rem, 4.5cqi, 1.125rem);
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--blu-notte);
   background: none;
@@ -733,31 +736,7 @@ body {
   stroke: none;
 }
 
-/* --- Logo: richiami (linee e pallini) --- */
-.richiamo circle {
-  transition: fill 0.3s ease;
-}
 
-.richiamo line,
-.richiamo polyline {
-  transition: stroke 0.3s ease;
-}
-
-.richiamo__alone {
-  fill: var(--blu-notte);
-  fill-opacity: 0.2;
-  transition: fill 0.3s ease;
-}
-
-.impegni--interattivo .richiamo--attivo circle,
-.impegni--interattivo .richiamo--attivo .richiamo__alone {
-  fill: var(--terracotta);
-}
-
-.impegni--interattivo .richiamo--attivo line,
-.impegni--interattivo .richiamo--attivo polyline {
-  stroke: var(--terracotta);
-}
 
 @media (prefers-reduced-motion: no-preference) {
   .impegni--interattivo .impegni__pannello {
@@ -785,55 +764,7 @@ body {
   }
 
   .impegni__grafica {
-    position: relative;
-    display: block;
-  }
-
-  .impegni__logo {
-    width: 100%;
-  }
-
-  .richiamo {
-    display: inline;
-  }
-
-  .impegni__schede {
-    position: absolute;
-    inset: 0;
-    display: block;
-    pointer-events: none;
-  }
-
-  .impegni__scheda {
-    position: absolute;
-    padding: 0.25rem 0;
-    font-size: clamp(1rem, 1.6vw, 1.375rem);
-    letter-spacing: 0.25em;
-    color: var(--blu-notte);
-    border: 0;
-    border-radius: 0;
-    pointer-events: auto;
-    transition: color 0.3s ease;
-  }
-
-  .impegni__scheda[aria-selected="true"] {
-    background: none;
-    color: var(--terracotta);
-  }
-
-  .impegni__scheda[data-area="luoghi"] {
-    left: 4%;
-    bottom: 88%;
-  }
-
-  .impegni__scheda[data-area="lavoro"] {
-    right: 3%;
-    bottom: 40%;
-  }
-
-  .impegni__scheda[data-area="cura"] {
-    left: 17%;
-    bottom: 4%;
+    --larghezza-logo: min(80%, 24rem);
   }
 }
 
@@ -1277,6 +1208,88 @@ body:has(.zoom[open]) {
   .dona__scheda {
     justify-items: start;
     text-align: left;
+  }
+}
+
+/* ===== PAGINA DONAZIONI ===== */
+.testata {
+  padding: 1.25rem max(1.5rem, (100% - 75rem) / 2);
+  background-color: var(--avorio);
+  border-bottom: 1px solid rgb(31 58 95 / 0.15);
+}
+
+.testata__marchio {
+  display: inline-block;
+}
+
+.testata__marchio:focus-visible {
+  outline: 2px solid var(--terracotta);
+  outline-offset: 4px;
+}
+
+.testata__logo {
+  width: auto;
+  height: 2.5rem;
+}
+
+.informativa {
+  padding: clamp(3rem, 8vw, 5rem) 1.5rem;
+  background-color: var(--avorio);
+  color: var(--blu-notte);
+}
+
+.informativa__contenuto {
+  max-width: 70ch;
+  margin-inline: auto;
+}
+
+.informativa__contenuto p {
+  margin: 0 0 1rem;
+}
+
+.informativa__intro {
+  font-size: 1.125rem;
+}
+
+.informativa__sottotitolo {
+  margin: 2.5rem 0 0.75rem;
+  font-family: var(--font-titoli);
+  font-weight: 400;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1.2;
+}
+
+.informativa__contenuto a:not(.informativa__ritorno) {
+  color: var(--terracotta-scuro);
+  text-underline-offset: 0.2em;
+}
+
+.informativa__ritorno {
+  display: inline-block;
+  margin-top: 2.5rem;
+  padding: 1rem 2.25rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  background-color: var(--blu-notte);
+  color: var(--avorio);
+  border-radius: 0.375rem;
+  transition: background-color 0.2s ease;
+}
+
+.informativa__ritorno:hover {
+  background-color: var(--terracotta-scuro);
+}
+
+.informativa__ritorno:focus-visible {
+  outline: 2px solid var(--terracotta);
+  outline-offset: 3px;
+}
+
+@media (min-width: 64rem) {
+  .testata__logo {
+    height: 3rem;
   }
 }
 
