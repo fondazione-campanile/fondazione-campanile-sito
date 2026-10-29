@@ -1263,7 +1263,7 @@ body:has(.zoom[open]) {
   }
 }
 
-/* ===== PAGINA DONAZIONI ===== */
+/* ===== PAGINE SECONDARIE ===== */
 .testata {
   padding: 1.25rem max(1.5rem, (100% - 75rem) / 2);
   background-color: var(--avorio);
@@ -1337,6 +1337,19 @@ body:has(.zoom[open]) {
 .informativa__ritorno:focus-visible {
   outline: 2px solid var(--terracotta);
   outline-offset: 3px;
+}
+
+.pagina-errore {
+  background-color: var(--avorio);
+}
+
+.informativa__codice {
+  margin: 0 0 0.5rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--terracotta-scuro);
 }
 
 @media (min-width: 64rem) {
