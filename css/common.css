@@ -1,7 +1,8 @@
 /* ===== FONT ===== */
 @font-face {
   font-family: "EB Garamond";
-  src: url("../assets/fonts/EBGaramond-Regular.ttf") format("truetype");
+  src: url("../assets/fonts/EBGaramond-Regular.woff2") format("woff2"),
+      url("../assets/fonts/EBGaramond-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -9,7 +10,8 @@
 
 @font-face {
   font-family: "Figtree";
-  src: url("../assets/fonts/Figtree-Regular.ttf") format("truetype");
+    src: url("../assets/fonts/Figtree-Regular.woff2") format("woff2"),
+       url("../assets/fonts/Figtree-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -17,7 +19,8 @@
 
 @font-face {
   font-family: "Figtree";
-  src: url("../assets/fonts/Figtree-SemiBold.ttf") format("truetype");
+    src: url("../assets/fonts/Figtree-SemiBold.woff2") format("woff2"),
+       url("../assets/fonts/Figtree-SemiBold.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
