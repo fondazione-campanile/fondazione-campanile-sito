@@ -1,3 +1,4 @@
+{
 const sezione = document.querySelector('.impegni');
 
 if (sezione) {
@@ -62,4 +63,5 @@ if (sezione) {
     evento.preventDefault();
     selezionaArea(schede[nuovo].dataset.area, true);
   });
+}
 }

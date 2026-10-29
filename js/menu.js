@@ -1,3 +1,4 @@
+{
 const toggle = document.querySelector('.nav-toggle');
 const nav = document.getElementById('menu-principale');
 const contenuti = document.querySelectorAll('main, footer');
@@ -42,3 +43,4 @@ desktop.addEventListener('change', (evento) => {
     impostaMenu(false);
   }
 });
+}
