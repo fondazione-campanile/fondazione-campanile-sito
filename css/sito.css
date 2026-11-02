@@ -761,7 +761,69 @@ main:focus {
   stroke: none;
 }
 
+/* --- Omini (proposta 2) --- */
+.impegni--omini .impegni__schede {
+  width: var(--larghezza-logo);
+}
 
+/* Omini */
+.impegni--interattivo .omino {
+  cursor: pointer;
+}
+
+.impegni--interattivo .omino__corpo,
+.impegni--interattivo .omino__testa {
+  fill: transparent;
+  stroke: var(--blu-notte);
+  stroke-width: 1.5;
+  vector-effect: non-scaling-stroke;
+  transition: fill 0.3s ease, stroke 0.3s ease, stroke-width 0.2s ease;
+}
+
+.impegni--interattivo .omino:not(.logo__parte--attiva):hover .omino__corpo,
+.impegni--interattivo .omino:not(.logo__parte--attiva):hover .omino__testa {
+  fill: var(--terracotta-chiaro);
+}
+
+.impegni--interattivo .omino.logo__parte--attiva .omino__corpo {
+  fill: var(--blu-notte);
+  stroke: none;
+}
+
+.impegni--interattivo .omino.logo__parte--attiva .omino__testa {
+  fill: var(--terracotta);
+  stroke: none;
+}
+
+/* Puntini: centro avorio, circonferenza colorata */
+.omino__pallino {
+  fill: var(--avorio);
+}
+
+.omino__anello {
+  fill: var(--blu-notte);
+  transition: fill 0.3s ease;
+}
+
+.impegni--interattivo .omino.logo__parte--attiva .omino__anello {
+  fill: var(--terracotta);
+}
+
+/* Linea: tratteggiata dove non ancora raggiunta, piena lungo il percorso */
+.omini__linea {
+  transition: stroke 0.3s ease;
+}
+
+.impegni--interattivo .omini__linea {
+  stroke-dasharray: 10 8;
+}
+
+.impegni--omini[data-area-attiva="adulti"] .omini__linea--1,
+.impegni--omini[data-area-attiva="anziani"] .omini__linea--1,
+.impegni--omini[data-area-attiva="anziani"] .omini__linea--2 {
+  stroke: var(--blu-notte);
+  stroke-dasharray: none;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .impegni--interattivo .impegni__pannello {
@@ -790,6 +852,13 @@ main:focus {
 
   .impegni__grafica {
     --larghezza-logo: min(80%, 24rem);
+  }
+    .impegni--omini .impegni__layout {
+    grid-template-columns: 2fr 3fr;
+  }
+
+  .impegni--omini .impegni__grafica {
+    --larghezza-logo: min(90%, 22rem);
   }
 }
 
