@@ -364,11 +364,54 @@ main:focus {
   color: var(--terracotta-chiaro);
 }
 
+.hero__freccia {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  margin-inline: auto;
+  color: var(--avorio);
+  background-color: rgb(31 58 95 / 0.5);
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+.hero__freccia:hover {
+  background-color: var(--blu-notte);
+}
+
+.hero__freccia:focus-visible {
+  outline: 2px solid var(--terracotta-chiaro);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero__freccia svg {
+    animation: hero-freccia 2s ease-in-out infinite;
+  }
+}
+
+@keyframes hero-freccia {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(4px);
+  }
+}
+
+/* --- Desktop: prima schermata a tutto schermo --- */
 @media (min-width: 48rem) {
   .hero {
-    display: block;
-    min-height: 36rem;
-    padding-block: calc(var(--header-spazio) + clamp(3rem, 8vw, 6rem)) clamp(5rem, 12vw, 9rem);
+    justify-content: center;
+    min-height: 100vh;
+    min-height: 100svh;
+    padding-block: var(--header-spazio) 4rem;
   }
 
   .hero__img {
@@ -379,7 +422,6 @@ main:focus {
     height: 100%;
     margin: 0;
     aspect-ratio: auto;
-    object-fit: cover;
     object-position: center;
     -webkit-mask-image: linear-gradient(to right, transparent, rgb(0 0 0 / 0.7));
     mask-image: linear-gradient(to right, transparent, rgb(0 0 0 / 0.7));
