@@ -441,7 +441,14 @@ main:focus {
 
 .chi-siamo__foto {
   width: 100%;
-  border-radius: 0.5rem;
+  -webkit-mask-image:
+    linear-gradient(to right, transparent, #000 15%, #000 85%, transparent),
+    linear-gradient(to bottom, transparent, #000 15%, #000 85%, transparent);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(to right, transparent, #000 15%, #000 85%, transparent),
+    linear-gradient(to bottom, transparent, #000 15%, #000 85%, transparent);
+  mask-composite: intersect;
 }
 
 .chi-siamo__motto {
@@ -750,11 +757,9 @@ main:focus {
 .impegni__img {
   width: 100%;
   aspect-ratio: 16 / 10;
-  margin-top: -4rem;
+  margin-top: 1.5rem;
   object-fit: cover;
   border-radius: 0.5rem;
-  -webkit-mask-image: linear-gradient(to bottom, transparent 20%, #000 60%);
-  mask-image: linear-gradient(to bottom, transparent 20%, #000 60%);
 }
 
 /* --- Logo: stati (solo se il JS attiva la sezione) --- */
