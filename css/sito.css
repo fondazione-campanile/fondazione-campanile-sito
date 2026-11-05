@@ -1090,14 +1090,16 @@ main:focus {
 
 .footer__contenuto {
   display: grid;
-  gap: 1.5rem;
+  gap: 2rem;
   padding-bottom: 2rem;
   border-bottom: 1px solid rgb(247 244 238 / 0.2);
 }
 
-.footer__logo {
+/* Colonna 1: logo e Auxilium */
+
+.footer__marchio {
+  display: block;
   width: min(100%, 16rem);
-  height: auto;
 }
 
 .footer__marchio:focus-visible {
@@ -1105,15 +1107,26 @@ main:focus {
   outline-offset: 4px;
 }
 
+.footer__logo {
+  width: 100%;
+  height: auto;
+}
+
+/* Colonne 2 e 3: dati e registro */
 .footer__dati {
   font-style: normal;
   line-height: 1.7;
 }
 
-.footer__auxilium {
+.footer__registro {
+  line-height: 1.7;
+}
+
+.footer__registro p {
   margin: 0;
 }
 
+/* Fondo: copyright e privacy */
 .footer__fondo {
   display: flex;
   flex-wrap: wrap;
@@ -1127,9 +1140,25 @@ main:focus {
   margin: 0;
 }
 
+/* --- Desktop: tre colonne, righe senza a capo --- */
+@media (min-width: 64rem) {
+  .footer__contenuto {
+    grid-template-columns: auto auto auto;
+    justify-content: space-between;
+    align-items: start;
+    column-gap: 3rem;
+  }
+
+  .footer__dati,
+  .footer__registro {
+    white-space: nowrap;
+  }
+}
+
+/* --- Desktop: logo | dati | Auxilium --- */
 @media (min-width: 48rem) {
   .footer__contenuto {
-    grid-template-columns: auto 1fr 1fr;
+    grid-template-columns: auto 1fr auto;
     align-items: center;
     column-gap: 4rem;
   }
@@ -1240,8 +1269,7 @@ body:has(.zoom[open]) {
   border-radius: 0.5rem;
 }
 
-.dona__nota,
-.dona__informativa {
+.dona__nota{
   justify-self: start;
   text-align: left;
 }
@@ -1270,8 +1298,7 @@ body:has(.zoom[open]) {
   background-color: var(--terracotta-scuro);
 }
 
-.dona__pulsante:focus-visible,
-.dona__informativa:focus-visible {
+.dona__pulsante:focus-visible {
   outline: 2px solid var(--terracotta);
   outline-offset: 3px;
 }
@@ -1280,13 +1307,6 @@ body:has(.zoom[open]) {
   max-width: 45ch;
   margin: 0;
   font-size: 0.875rem;
-}
-
-.dona__informativa {
-  font-weight: 600;
-  font-size: 0.8125rem;
-  color: var(--terracotta);
-  text-underline-offset: 0.2em;
 }
 
 @media (min-width: 48rem) {
@@ -1397,6 +1417,178 @@ body:has(.zoom[open]) {
   }
 }
 
+/* --- Pagina donazioni --- */
+.informativa__contenuto--largo {
+  max-width: 60rem;
+}
+
+.informativa__elenco {
+  margin: 0 0 1rem;
+  padding-left: 1.25rem;
+}
+
+.informativa__elenco li + li {
+  margin-top: 0.5rem;
+}
+
+/* Metodi */
+.metodi {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.metodo {
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border: 2px solid var(--blu-notte);
+  border-radius: 0.5rem;
+}
+
+.metodo p {
+  margin: 0;
+}
+
+.metodo__stato {
+  justify-self: start;
+  padding: 0.25rem 0.75rem;
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  background-color: var(--terracotta-scuro);
+  color: var(--avorio);
+  border-radius: 999px;
+}
+
+.metodo__titolo {
+  margin: 0;
+  font-family: var(--font-titoli);
+  font-weight: 400;
+  font-size: clamp(1.5rem, 2.5vw, 1.875rem);
+  line-height: 1.2;
+}
+
+.metodo__pulsante {
+  justify-self: start;
+  padding: 1rem 2.25rem;
+  font: inherit;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background-color: var(--blu-notte);
+  color: var(--avorio);
+  border: 0;
+  border-radius: 0.375rem;
+}
+
+.metodo__pulsante:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.metodo__dati {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.75rem 1.25rem;
+  margin: 0;
+}
+
+.metodo__dati dt {
+  font-weight: 600;
+}
+
+.metodo__dati dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.metodo__iban {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.05em;
+}
+
+/* Pulsanti "Copia" */
+.copia {
+  margin-left: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.8125rem;
+  color: var(--blu-notte);
+  background: none;
+  border: 1.5px solid var(--blu-notte);
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.copia:hover {
+  background-color: var(--blu-notte);
+  color: var(--avorio);
+}
+
+.copia:focus-visible {
+  outline: 2px solid var(--terracotta);
+  outline-offset: 2px;
+}
+
+.copia--chiaro {
+  color: var(--avorio);
+  border-color: var(--avorio);
+}
+
+.copia--chiaro:hover {
+  background-color: var(--avorio);
+  color: var(--blu-notte);
+}
+
+/* 5x1000 */
+.cinque {
+  margin-top: 3rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  text-align: center;
+  background-color: var(--blu-notte);
+  color: var(--avorio);
+  border-radius: 0.5rem;
+}
+
+.cinque .fascia {
+  margin-bottom: 1.5rem;
+  padding: 1rem 3rem;
+  font-size: clamp(1.125rem, 2.2vw, 1.5rem);
+  letter-spacing: 0.2em;
+}
+
+.informativa__contenuto .cinque__codice {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 0;
+  font-weight: 600;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  letter-spacing: 0.1em;
+}
+
+.cinque p:not(.cinque__codice) {
+  max-width: 75ch;
+  margin-inline: auto;
+}
+
+.cinque__codice .copia {
+  margin-left: 0;
+  letter-spacing: normal;
+}
+
+@media (min-width: 48rem) {
+  .metodi {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 /* ===== ANIMAZIONI ===== */
 
 /* --- Comparsa sfumata --- */
@@ -1450,6 +1642,11 @@ body:has(.zoom[open]) {
   font-size: 1.0625rem;
   letter-spacing: 0.2em;
   -webkit-text-stroke: 0.4px currentColor;
+}
+
+.fascia--evidenza {
+  background-color: var(--avorio);
+  color: var(--terracotta-scuro);
 }
 
   .animazioni .fascia--sospesa:not(.rivelato) {
