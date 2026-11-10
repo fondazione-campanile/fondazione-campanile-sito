@@ -2,3 +2,6 @@ Thumbs.db
 .DS_Store
 desktop.ini
 *:Zone.Identifier
+
+node_modules/
+.next/
