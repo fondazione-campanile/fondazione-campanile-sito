@@ -1,10 +1,10 @@
+{
 const sezione = document.querySelector('.impegni');
 
 if (sezione) {
   const schede = Array.from(sezione.querySelectorAll('[role="tab"]'));
   const pannelli = sezione.querySelectorAll('[role="tabpanel"]');
   const parti = sezione.querySelectorAll('.logo__parte');
-  const richiami = sezione.querySelectorAll('.richiamo');
 
   function selezionaArea(area, spostaFocus = false) {
     schede.forEach((scheda) => {
@@ -24,9 +24,6 @@ if (sezione) {
       parte.classList.toggle('logo__parte--attiva', parte.dataset.area === area);
     });
 
-    richiami.forEach((richiamo) => {
-      richiamo.classList.toggle('richiamo--attivo', richiamo.dataset.area === area);
-    });
   }
 
   sezione.classList.add('impegni--interattivo');
@@ -66,4 +63,5 @@ if (sezione) {
     evento.preventDefault();
     selezionaArea(schede[nuovo].dataset.area, true);
   });
+}
 }

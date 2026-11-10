@@ -3,28 +3,314 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Fondazione Antonio Campanile – Sito in costruzione</title>
-  <meta name="description" content="Il sito della Fondazione Antonio Campanile è in costruzione.">
+  <title>Fondazione Antonio Campanile</title>
+  <meta name="description" content="Fondazione senza scopo di lucro a Valderice (TP) per l'inclusione delle persone con disabilità e in condizione di fragilità.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Fondazione Antonio Campanile">
+  <meta property="og:title" content="Fondazione Antonio Campanile">
+  <meta property="og:description" content="Fondazione senza scopo di lucro a Valderice (TP) per l'inclusione delle persone con disabilità e in condizione di fragilità.">
+  <meta property="og:url" content="https://www.fondazionecampanile.it/">
+  <link rel="canonical" href="https://www.fondazionecampanile.it/">
+  <meta property="og:image" content="https://www.fondazionecampanile.it/assets/photo/mani_unite.jpg">
+  <meta property="og:image:alt" content="Mani unite">
+  <meta property="og:locale" content="it_IT">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#1F3A5F">
 
-     <link rel="icon" href="assets/favicon/favicon-32.png?v=2" sizes="32x32" type="image/png">
-     <link rel="icon" href="assets/favicon/favicon.svg?v=2" type="image/svg+xml">
-     <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png?v=2">
+  <script>
+    {
+      try {
+        const ridotto = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!ridotto && !sessionStorage.getItem('intro-vista')) {
+          sessionStorage.setItem('intro-vista', '1');
+          document.documentElement.classList.add('intro-attiva');
+        }
+      } catch {}
+    }
+  </script>
+
+  <link rel="icon" href="assets/favicon/favicon-32.png?v=2" sizes="32x32" type="image/png">
+  <link rel="icon" href="assets/favicon/favicon-fac.svg?v=2" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png?v=2">
 
   <link rel="stylesheet" href="css/common.css">
-  <link rel="stylesheet" href="css/wip.css">
+  <link rel="stylesheet" href="css/sito.css">
+  <script src="js/menu.js" defer></script>
+  <script src="js/pilastri.js" defer></script>
+  <script src="js/impegni.js" defer></script>
+  <script src="js/progetti.js" defer></script>
+  <script src="js/zoom.js" defer></script>
+  <script src="js/intro.js" defer></script>
+  <script src="js/animazioni.js" defer></script>
 </head>
+
 <body>
-  <main class="wip">
-    <div class="wip__logo">
-      <img class="wip__img wip__img--1" src="assets/img/Logo-FonAntCamp-WIP-01.png" alt="" width="800" height="600">
-      <img class="wip__img wip__img--2" src="assets/img/Logo-FonAntCamp-WIP-02.png" alt="Fondazione Antonio Campanile" width="800" height="600">
-    </div>
-    <h1 class="wip__title">Sito web in costruzione</h1>
+
+  <div class="intro" aria-hidden="true">
+    <img class="intro__logo intro__logo--wip" src="assets/img/Logo-FonAntCamp-WIP-01.png" alt="">
+    <img class="intro__logo intro__logo--finale" src="assets/img/Logo-FonAntCamp-Bianco-su-Nero.png" alt="">
+  </div>
+
+  <a class="salta" href="#top">Salta al contenuto</a>
+
+  <header class="header">
+    <a class="header__brand" href="#top">
+      <img class="header__logo" src="assets/img/Logo-FonAntCamp-Esteso.png" alt="Fondazione Antonio Campanile" width="888" height="151">
+    </a>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu-principale" aria-label="Menu">
+      <span class="nav-toggle__line"></span>
+      <span class="nav-toggle__line"></span>
+      <span class="nav-toggle__line"></span>
+    </button>
+
+    <nav class="nav" id="menu-principale" aria-label="Menu principale">
+      <ul class="nav__list">
+        <li><a class="nav__link" href="#chi-siamo">Chi siamo</a></li>
+        <li><a class="nav__link" href="#cosa-facciamo">Cosa facciamo</a></li>
+        <li><a class="nav__link" href="#impegni">Impegni</a></li>
+        <li><a class="nav__link" href="#progetti">Progetti</a></li>
+        <li><a class="nav__link" href="carta-servizi.html">Carta dei Servizi</a></li>
+        <li><a class="nav__link nav__link--cta" href="#dona">Dona</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="top" tabindex="-1">
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+      <img class="hero__img" src="assets/photo/mani_unite.jpg" alt="" width="1000" height="992" fetchpriority="high">
+      <h1 class="hero__title" data-scrittura style="--velocita: 0.025s">Il domani si prepara oggi.</h1>
+      <p class="hero__subtitle" data-rivela style="--ritardo: 0.7s">Dare casa alle capacità di ciascuno</p>
+      <a class="hero__freccia" href="#chi-siamo" aria-label="Vai alla sezione Chi siamo" data-rivela style="--ritardo: 1.2s">
+        <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+          <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </section>
+
+    <!-- ===== CHI SIAMO ===== -->
+    <section id="chi-siamo" class="section section--avorio chi-siamo" aria-labelledby="chi-siamo-titolo">
+      <div class="chi-siamo__testo">
+        <h2 id="chi-siamo-titolo" class="section__title" data-scrittura>Chi siamo</h2>
+        <p data-rivela>La <strong>Fondazione Antonio Campanile ETS</strong> è un ente senza scopo di lucro nato nel 2026 a Valderice, in provincia di Trapani, per iniziativa della <strong>Fondazione Auxilium</strong>.</p>
+        <p data-rivela style="--ritardo: 0.15s">Il nostro impegno è costruire strumenti concreti per le persone con disabilità e in condizione di fragilità, perché possano contare su più <strong>occasioni di lavoro, di socialità e di autonomia</strong>. Crediamo che ogni persona abbia capacità da valorizzare, e che queste trovino spazio quando esistono luoghi, attività e opportunità pensati per accoglierle. Per questo diamo vita a progetti stabili e sostenibili nel tempo, radicati nella comunità, capaci di offrire risposte alle persone e alle loro famiglie oggi e anche nel <strong>“dopo di noi”</strong>.</p>
+      </div>
+
+           <img class="chi-siamo__foto" data-rivela style="--ritardo: 0.3s" src="assets/photo/cuore.jpg" alt="" width="1200" height="1200" loading="lazy">
+
+      <p class="chi-siamo__motto" data-rivela>Radicati nel territorio, aperti a tutti</p>
+    </section>
+
+ <!-- ===== COSA FACCIAMO ===== -->
+    <section id="cosa-facciamo" class="section section--blu cosa-facciamo" aria-labelledby="cosa-facciamo-titolo">
+      <h2 id="cosa-facciamo-titolo" class="section__title" data-scrittura>Cosa facciamo</h2>
+
+      <div class="cosa-facciamo__corpo">
+        <ul class="pilastri">
+          <li class="pilastro">
+            <h3 class="pilastro__nome">Imprese sociali e inserimento lavorativo</h3>
+            <p class="pilastro__testo">Attività economiche in cui le persone con fragilità possono formarsi, lavorare e sentirsi parte di un progetto.</p>
+            <img class="pilastro__img" src="assets/photo/cosa-facciamo-1.jpg" alt="" width="1200" height="675" loading="lazy">
+          </li>
+          <li class="pilastro">
+            <h3 class="pilastro__nome">Servizi socio-ricreativi</h3>
+            <p class="pilastro__testo">Attività sportive, ludiche e laboratoriali per stare insieme, esprimersi e costruire relazioni.</p>
+            <img class="pilastro__img" src="assets/photo/cosa-facciamo-2.jpg" alt="" width="1200" height="675" loading="lazy">
+          <li class="pilastro">
+            <h3 class="pilastro__nome">Accompagnamento alle autonomie</h3>
+            <p class="pilastro__testo">Percorsi per sviluppare le competenze della vita quotidiana, anche in vista del “dopo di noi”.</p>
+            <img class="pilastro__img" src="assets/photo/cosa-facciamo-3.jpg" alt="" width="1200" height="675" loading="lazy">
+          </li>
+        </ul>
+
+        <p class="cosa-facciamo__descrizione" data-rivela>La Fondazione Antonio Campanile ETS costruisce strumenti concreti, come imprese sociali, servizi socio-ricreativi e percorsi di autonomia, perché le persone con disabilità e fragilità abbiano più occasioni di lavoro, relazione e partecipazione alla vita della comunità.</p>
+
+        <div class="cosa-facciamo__motto">
+          <p class="fascia fascia--sospesa fascia--motto">Dare casa alle capacità di ciascuno</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== IMPEGNI ===== -->
+    <section id="impegni" class="section section--avorio impegni" aria-labelledby="impegni-titolo">
+      <h2 id="impegni-titolo" class="section__title" data-scrittura>Impegni</h2>
+
+      <div class="impegni__layout">
+
+        <div class="impegni__colonna">
+          <p class="fascia fascia--sospesa fascia--blu">Prendersi cura, aprire porte, costruire luoghi</p>
+
+          <div class="impegni__grafica" data-rivela>
+            <svg class="impegni__logo" viewBox="165 -5 510 492" aria-hidden="true">
+              <path class="logo__parte logo__porta" data-area="lavoro" fill="#1f3a5f" d="M551.4,481.17c-.66-52.11-.17-120.27-.08-172.09-.35-2.77-.69-5.61-1-8.46-8.8-74.07-76.51-125.17-150-114.18-54.7,8.21-106.9,54.21-111.15,122.69.08,49.95-.09,164.39-.09,172h.27L289,482l238.47-.91c1,0,2,0,3,.08Z"/>
+
+              <g class="logo__parte logo__persona" data-area="cura" fill="#f7f4ee">
+                <path d="M490.19,482H349.81c0-13.67.86-27.42,1.09-41.15A70.85,70.85,0,0,1,361.32,405a70.21,70.21,0,0,1,10.24-12.92,68.69,68.69,0,0,1,97.14.23,70.68,70.68,0,0,1,10.13,12.92,74.79,74.79,0,0,1,4.57,8.86c.43,1,.84,2.08,1.24,3.11a70,70,0,0,1,2.85,9.78,70.78,70.78,0,0,1,1.61,13.84C489.33,454.55,490.19,468.42,490.19,482Z"/>
+                <path d="M464.9,309.82a45.23,45.23,0,0,1-44.74,45,43.91,43.91,0,0,1-15.45-2.73c-1.36-.52-2.68-1.07-4-1.7a45.56,45.56,0,0,1-25.64-40.22,43,43,0,0,1,.92-9.27,43.53,43.53,0,0,1,8-17.58c.4-.57.86-1.15,1.32-1.7a40.84,40.84,0,0,1,2.91-3.13,45.25,45.25,0,0,1,63.5-.12c.52.52,1,1,1.5,1.56s.95,1.06,1.41,1.61a44.13,44.13,0,0,1,8.23,15c.2.69.4,1.38.6,2.1a44.42,44.42,0,0,1,1.38,8.83C464.87,308.3,464.9,309,464.9,309.82Z"/>
+              </g>
+
+              <path class="logo__parte logo__tetto" data-area="luoghi" fill="#c0643a" d="M670.2,229c-.78,9.7-4.87,17.23-13.42,21s-16.71,2.17-23.88-4.36c-27.64-25.13-55.42-50.11-83.09-75.21C510.08,134.4,470.14,98.59,430.9,62c-8.72-8.13-13.6-7.31-21.93.36-60.63,55.76-121.74,111-182.73,166.4-7.09,6.43-14,13.11-21.64,18.88-8.72,6.59-18,6-26.25-1.17-8-7-10.37-15.85-5.88-25.9,2.39-5.36,6.49-9.35,10.79-13.25Q290.18,110.27,397,13.1C415.77-4,424.25-4.12,442.58,12.52Q550,110.09,657.42,207.69C664,213.67,669.21,220.21,670.2,229Z"/>
+            </svg>
+
+          <div class="impegni__schede" role="tablist" aria-label="Aree di impegno">
+            <button class="impegni__scheda" id="scheda-cura" type="button" role="tab" aria-selected="true" aria-controls="pannello-cura" data-area="cura">Cura</button>
+            <button class="impegni__scheda" id="scheda-lavoro" type="button" role="tab" aria-selected="false" aria-controls="pannello-lavoro" tabindex="-1" data-area="lavoro">Lavoro</button>
+            <button class="impegni__scheda" id="scheda-luoghi" type="button" role="tab" aria-selected="false" aria-controls="pannello-luoghi" tabindex="-1" data-area="luoghi">Luoghi</button>
+          </div>
+          </div>
+        </div>
+
+        <div class="impegni__pannelli" data-rivela style="--ritardo: 0.2s">
+          <div class="impegni__pannello" id="pannello-cura" role="tabpanel" aria-labelledby="scheda-cura" tabindex="0">
+            <h3 class="impegni__nome">Cura</h3>
+            <p class="impegni__testo"><strong>Al centro vi è la persona</strong>: è da lì che parte ogni cosa che facciamo. Ci prendiamo cura di bambini e ragazzi, adulti e anziani in condizione di fragilità, con un'assistenza che unisce aspetti sanitari, sociali, psicologici ed educativi. Per i più giovani significa accompagnarne la crescita; per tutti, ricevere un'attenzione costruita sulla propria storia.</p>
+            <img class="impegni__img" src="assets/photo/impegni-casa.jpg" alt="" width="1200" height="750" loading="lazy">
+          </div>
+
+          <div class="impegni__pannello" id="pannello-lavoro" role="tabpanel" aria-labelledby="scheda-lavoro" tabindex="0">
+            <h3 class="impegni__nome">Lavoro</h3>
+            <p class="impegni__testo"><strong>Una porta è un passaggio dall’attesa alla possibilità</strong>. Attraverso formazione professionale, laboratori artigianali, tirocini e collaborazioni con cooperative e imprese sociali, accompagniamo giovani con disabilità o in condizione di svantaggio verso un’occupazione stabile: un lavoro vero, che porti autonomia economica, un ruolo riconosciuto e la possibilità di partecipare pienamente alla vita della comunità.</p>
+            <img class="impegni__img" src="assets/photo/impegni-lavoro.jpg" alt="" width="1200" height="750" loading="lazy">
+          </div>
+
+          <div class="impegni__pannello" id="pannello-luoghi" role="tabpanel" aria-labelledby="scheda-luoghi" tabindex="0">
+            <h3 class="impegni__nome">Luoghi</h3>
+            <p class="impegni__testo"><strong>Un tetto non protegge solo chi ci vive</strong>: accoglie chi entra, chi si ferma, chi passa. Diamo vita a luoghi aperti alla comunità, come gallerie d’arte, botteghe, spazi di cultura e ristorazione, in cui le persone fragili non sono ospiti, ma protagoniste. Spazi dove lavorare, creare e incontrarsi, e dove l'inclusione diventa un'esperienza quotidiana.</p>
+            <img class="impegni__img" src="assets/photo/impegni-luoghi.jpg" alt="" width="1200" height="750" loading="lazy">
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== PROGETTI ===== -->
+    <section id="progetti" class="section section--blu progetti" aria-labelledby="progetti-titolo">
+      <h2 id="progetti-titolo" class="section__title" data-scrittura>Progetti</h2>
+      <p class="fascia">Ogni progetto è un passo concreto: ecco cosa stiamo costruendo</p>
+
+      <div class="progetti__galleria" data-rivela>
+        <div class="progetti__lista" id="progetti-lista" role="region" aria-label="Elenco dei progetti" tabindex="0">
+
+          <article class="progetto" aria-labelledby="progetto-galleria-titolo">
+            <div class="progetto__media">
+              <button class="progetto__zoom" type="button" data-zoom data-didascalia="Galleria Betania" aria-label="Ingrandisci la foto del progetto Galleria Betania">
+               <img class="progetto__img" src="assets/photo/luoghi-galleria-betania.jpg" alt="" width="900" height="675" loading="lazy">
+              </button>
+              <img class="progetto__logo" src="assets/img/galleria-betania-logo.png" alt="" width="800" height="244" loading="lazy">
+            </div>
+
+            <div class="progetto__corpo">
+              <ul class="progetto__etichette">
+                <li class="etichetta etichetta--luoghi">Luoghi</li>
+                <li class="etichetta etichetta--stato">In corso</li>
+              </ul>
+              <h3 id="progetto-galleria-titolo" class="progetto__titolo">Galleria Betania</h3>
+              <p class="progetto__testo">Galleria Betania dà spazio e voce ai giovani artisti della Fondazione Auxilium. Pittura su tela, sculture in plastilina e tecniche diverse raccontano talento, diversità e inclusione. Ogni anno una nuova mostra su un tema diverso, nel 2025 la libertà, visitabile su prenotazione.</p>
+              <a class="progetto__link" href="https://www.galleriabetania.it" target="_blank" rel="noopener">Visita la galleria<span class="visually-hidden"> (si apre in una nuova scheda)</span></a>
+            </div>
+          </article>
+
+          <article class="progetto" aria-labelledby="progetto-beta-bar-titolo">
+            <div class="progetto__media">
+              <button class="progetto__zoom" type="button" data-zoom data-didascalia="Beta Bar" aria-label="Ingrandisci la foto del progetto Beta Bar">
+                <img class="progetto__img" src="assets/photo/progetto-beta-bar.jpg" alt="" width="900" height="675" loading="lazy">
+              </button>
+              <img class="progetto__logo progetto__logo--quadrato" src="assets/img/fondazione-auxilium-logo.png" alt="" width="500" height="500" loading="lazy">
+            </div>
+
+            <div class="progetto__corpo">
+              <ul class="progetto__etichette">
+                <li class="etichetta etichetta--lavoro">Lavoro</li>
+                <li class="etichetta etichetta--stato">Evento</li>
+              </ul>
+              <h3 id="progetto-beta-bar-titolo" class="progetto__titolo">Beta Bar</h3>
+              <p class="progetto__testo">Il Beta Bar è un luogo dove le possibilità diventano concrete. I ragazzi acquisiscono autonomia inserendosi in un contesto lavorativo reale: preparano cocktail, servono ai tavoli, entrano in contatto con le persone e costruiscono una rete sociale con il territorio.</p>
+              <a class="progetto__link" href="https://www.instagram.com/p/DXPAhaqDZqB/" target="_blank" rel="noopener">Info sull'evento<span class="visually-hidden"> (si apre in una nuova scheda)</span></a>
+            </div>
+          </article>
+
+        </div>
+
+        <button class="progetti__freccia progetti__freccia--precedente" type="button" data-direzione="-1" aria-label="Progetto precedente" aria-controls="progetti-lista" hidden>
+          <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+            <path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+
+        <button class="progetti__freccia progetti__freccia--successiva" type="button" data-direzione="1" aria-label="Progetto successivo" aria-controls="progetti-lista" hidden>
+          <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+            <path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- ===== DONA ===== -->
+    <section id="dona" class="section section--terracotta-scuro dona" aria-labelledby="dona-titolo">
+      <h2 id="dona-titolo" class="section__title" data-scrittura>Fai una donazione</h2>
+
+      <div class="dona__layout">
+        <div class="dona__colonna">
+          <p class="fascia fascia--sospesa fascia--avorio">Ogni gesto costruisce un futuro</p>
+
+          <ul class="dona__garanzie" data-rivela>
+            <li><strong>Nessun utile distribuito.</strong> Gli avanzi di gestione restano nella fondazione e servono alle sue attività.</li>
+            <li><strong>Una gestione controllata.</strong> Un revisore legale vigila sulla corretta amministrazione della fondazione.</li>
+            <li><strong>Bilancio annuale.</strong> Ogni anno il Consiglio di amministrazione approva il bilancio della fondazione.</li>
+          </ul>
+        </div>
+
+        <div class="dona__scheda" data-rivela style="--ritardo: 0.2s">
+          <p class="dona__frase">Con una donazione diventi parte di questo progetto: ci aiuti a dare a chi è più fragile una casa, un lavoro, una comunità.</p>
+          <a class="dona__pulsante" href="donazioni.html">Dona ora</a>
+          <p class="dona__nota">Puoi donare con carta di credito o con bonifico bancario. Per ogni donazione ricevi una ricevuta fiscale via email.</p>
+        </div>
+      </div>
+    </section>
+
   </main>
 
-  <footer class="footer">
-        <img class="footer__logo" src="assets/img/logo-Fondazione-Campanile.png" alt="" width="LARGHEZZA" height="ALTEZZA">
-    <p class="footer__copy">© 2026 Fondazione Antonio Campanile</p>
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" id="contatti">
+    <div class="footer__contenuto">
+      <a class="footer__marchio" href="#top">
+        <img class="footer__logo" src="assets/img/Logo-FonAntCamp-Esteso-b.png" alt="Fondazione Antonio Campanile, torna all’inizio" width="889" height="151" loading="lazy">
+      </a>
+
+      <address class="footer__dati">
+        Fondazione Antonio Campanile ETS<br>
+        Via Ragosia 1, 91019 Valderice (TP)<br>
+        C.F. 02970910812
+      </address>
+
+      <div class="footer__registro">
+        <p>Iscritta al RUNTS sez. g) – rep. n. 179329</p>
+        <p>Un’iniziativa di <a href="https://www.auxiliumtrapani.it" target="_blank" rel="noopener">Fondazione Auxilium<span class="visually-hidden"> (si apre in una nuova scheda)</span></a></p>
+        <p><a href="mailto:fondazionecampanile@gmail.com">fondazionecampanile@gmail.com</a></p>
+      </div>
+    </div>
+
+    <div class="footer__fondo">
+      <p>© 2026 Fondazione Antonio Campanile ETS</p>
+      <a href="informativa-privacy.html">Informativa privacy</a>
+    </div>
   </footer>
+  <!-- ===== ZOOM IMMAGINI ===== -->
+  <dialog class="zoom" id="zoom" aria-labelledby="zoom-didascalia">
+    <form class="zoom__barra" method="dialog">
+      <button class="zoom__chiudi" type="submit" aria-label="Chiudi">
+        <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+          <path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </form>
+    <figure class="zoom__figura">
+      <img class="zoom__img" alt="">
+      <figcaption class="zoom__didascalia" id="zoom-didascalia"></figcaption>
+    </figure>
+  </dialog>
+
 </body>
 </html>
