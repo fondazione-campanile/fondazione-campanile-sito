@@ -25,6 +25,7 @@
   <link rel="stylesheet" href="css/sito.css">
   <script src="js/copia.js" defer></script>
   <script src="js/animazioni.js" defer></script>
+  <script src="js/dona-carta.js" defer></script>
 </head>
 
 <body>
@@ -45,15 +46,31 @@
         <h2 id="metodi-titolo" class="informativa__sottotitolo">Come donare</h2>
 
         <div class="metodi">
-          <article class="metodo" aria-labelledby="metodo-carta-titolo">
-            <p class="metodo__stato">In arrivo</p>
-            <h3 id="metodo-carta-titolo" class="metodo__titolo">Carta di credito</h3>
-            <p>Potrai donare online in modo sicuro su una piattaforma di pagamento esterna: i dati della tua carta non passano dal nostro sito.</p>
-            <button class="metodo__pulsante" type="button" disabled>Dona con carta</button>
+                   <article class="metodo metodo--carta" aria-labelledby="metodo-carta-titolo">
+            <h3 id="metodo-carta-titolo" class="metodo__titolo"><span class="icona icona--carta" aria-hidden="true"></span>Carta di credito</h3>
+            <p>Dona online in modo sicuro: il pagamento avviene su Stripe e i dati della tua carta non passano dal nostro sito.</p>
+
+            <div class="dona-carta" data-link-libero="https://buy.stripe.com/LINK-LIBERO" hidden>
+              <fieldset class="dona-carta__gruppo">
+                <legend class="dona-carta__legenda">Frequenza</legend>
+                <label class="pillola"><input class="pillola__input" type="radio" name="frequenza" value="una-volta" checked> Una volta</label>
+                <label class="pillola"><input class="pillola__input" type="radio" name="frequenza" value="mensile"> Ogni mese</label>
+              </fieldset>
+
+              <fieldset class="dona-carta__gruppo">
+                <legend class="dona-carta__legenda">Importo</legend>
+                <label class="pillola"><input class="pillola__input" type="radio" name="importo" value="10" data-link-mensile="https://buy.stripe.com/LINK-MENSILE-10"> 10 €</label>
+                <label class="pillola"><input class="pillola__input" type="radio" name="importo" value="25" data-link-mensile="https://buy.stripe.com/LINK-MENSILE-25" checked> 25 €</label>
+                <label class="pillola"><input class="pillola__input" type="radio" name="importo" value="50" data-link-mensile="https://buy.stripe.com/LINK-MENSILE-50"> 50 €</label>
+                <label class="pillola pillola--altro"><input class="pillola__input" type="radio" name="importo" value="altro"> Altro</label>
+              </fieldset>
+            </div>
+
+            <a class="metodo__pulsante dona-carta__vai" href="https://buy.stripe.com/LINK-LIBERO">Dona con carta</a>
           </article>
 
-          <article class="metodo" aria-labelledby="metodo-bonifico-titolo">
-            <h3 id="metodo-bonifico-titolo" class="metodo__titolo">Bonifico bancario</h3>
+          <article class="metodo metodo--bonifico" aria-labelledby="metodo-bonifico-titolo">
+            <h3 id="metodo-bonifico-titolo" class="metodo__titolo"><span class="icona icona--bonifico" aria-hidden="true"></span>Bonifico bancario</h3>
             <dl class="metodo__dati">
               <dt>Intestatario</dt>
               <dd>FONDAZIONE ANTONIO CAMPANILE</dd>
@@ -64,7 +81,7 @@
               <dt>IBAN</dt>
               <dd>
                 <span class="metodo__iban">IT79 I089 5216 4000 0000 0175 386</span>
-                <button class="copia" type="button" data-copia="IT79I0895216400000000175386" hidden>Copia IBAN</button>
+                <button class="copia copia--chiaro" type="button" data-copia="IT79I0895216400000000175386" hidden>Copia IBAN</button>
               </dd>
 
               <dt>Causale</dt>
@@ -90,7 +107,7 @@
 
       <!-- 5x1000 -->
       <section class="cinque" aria-labelledby="cinque-titolo">
-         <h2 id="cinque-titolo" class="fascia fascia--sospesa">Il tuo 5x1000</h2>
+         <h2 id="cinque-titolo" class="fascia fascia--sospesa"><span class="icona icona--cinque" aria-hidden="true"></span>Il tuo 5x1000</h2>
         <p>Destinare il 5x1000 non costa nulla. Nella dichiarazione dei redditi firma nel riquadro dedicato al sostegno degli enti del Terzo settore e scrivi il nostro codice fiscale:</p>
         <p class="cinque__codice">
           <span>02970910812</span>

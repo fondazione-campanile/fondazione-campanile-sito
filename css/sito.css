@@ -1509,6 +1509,110 @@ body:has(.zoom[open]) {
   letter-spacing: 0.05em;
 }
 
+/* Il pulsante ora può essere anche un link */
+a.metodo__pulsante {
+  text-align: center;
+  text-decoration: none;
+}
+
+/* Varianti colore delle card */
+.metodo--carta {
+  background-color: var(--blu-notte);
+  border: 0;
+  color: var(--avorio);
+}
+
+.metodo--bonifico {
+  background-color: var(--terracotta-scuro);
+  border: 0;
+  color: var(--avorio);
+}
+
+.metodo--carta .metodo__titolo,
+.metodo--bonifico .metodo__titolo {
+  font-family: var(--font-testo);
+  font-weight: 600;
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+}
+
+.informativa .metodo--carta .metodo__pulsante {
+  background-color: var(--terracotta-scuro);
+  color: var(--avorio);
+}
+
+.informativa .metodo--carta .metodo__pulsante:hover {
+  background-color: var(--avorio);
+  color: var(--blu-notte);
+}
+
+.metodo--carta :focus-visible,
+.metodo--bonifico :focus-visible {
+  outline-color: var(--avorio);
+}
+
+/* Selettore frequenza e importo */
+.dona-carta {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.dona-carta__gruppo {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.dona-carta__legenda {
+  float: left;
+  width: 7rem;
+  padding: 0.5rem 0 0;
+  font-weight: 600;
+  font-size: 0.8125rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.pillola {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  margin: 0 0.375rem 0.375rem 0;
+  padding: 0.3125rem 0.875rem;
+  border: 2px solid var(--avorio);
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.pillola[hidden] {
+  display: none;
+}
+
+.pillola__input {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.pillola:hover {
+  background-color: rgb(247 244 238 / 0.15);
+}
+
+.pillola:has(.pillola__input:checked) {
+  background-color: var(--avorio);
+  color: var(--blu-notte);
+}
+
+.pillola:has(.pillola__input:focus-visible) {
+  outline: 2px solid var(--avorio);
+  outline-offset: 3px;
+}
+
 /* Pulsanti "Copia" */
 .copia {
   margin-left: 0.5rem;
@@ -1587,6 +1691,29 @@ body:has(.zoom[open]) {
   .metodi {
     grid-template-columns: 1fr 1fr;
   }
+}
+/* Icone dei metodi di donazione */
+.icona {
+  display: inline-block;
+  width: 1.4em;
+  height: 1.4em;
+  margin-right: 0.5em;
+  vertical-align: -0.3em;
+  background-color: currentColor;
+  -webkit-mask: var(--icona) center / contain no-repeat;
+  mask: var(--icona) center / contain no-repeat;
+}
+
+.icona--carta {
+  --icona: url("../assets/img/carta.svg");
+}
+
+.icona--bonifico {
+  --icona: url("../assets/img/bonifico.svg");
+}
+
+.icona--cinque {
+  --icona: url("../assets/img/mille.svg");
 }
 
 /* ===== ANIMAZIONI ===== */
