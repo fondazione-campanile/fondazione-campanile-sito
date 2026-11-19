@@ -5,6 +5,7 @@ import CosaFacciamo from '@/components/home/CosaFacciamo';
 import Progetti from '@/components/home/Progetti';
 import Dona from '@/components/home/Dona';
 import Intro from '@/components/home/Intro';
+import Impegni from '@/components/home/Impegni';
 
 export default function Home() {
   return (
@@ -16,7 +17,7 @@ export default function Home() {
         <Hero />
         <ChiSiamo />
         <CosaFacciamo />
-        {}
+        {<Impegni />}
         <Progetti />
         <Dona />
       </main>

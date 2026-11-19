@@ -1,4 +1,5 @@
 import Scrittura from '@/components/Scrittura';
+import GalleriaProgetti from './GalleriaProgetti';
 
 const progetti = [
   {
@@ -38,46 +39,7 @@ export default function Progetti() {
     <section id="progetti" className="section section--blu progetti" aria-labelledby="progetti-titolo">
       <Scrittura id="progetti-titolo" className="section__title">Progetti</Scrittura>
       <p className="fascia">Ogni progetto è un passo concreto: ecco cosa stiamo costruendo</p>
-
-      <div className="progetti__galleria" data-rivela>
-        <div className="progetti__lista" id="progetti-lista" role="region" aria-label="Elenco dei progetti" tabIndex={0}>
-          {progetti.map((progetto) => (
-            <article className="progetto" aria-labelledby={`progetto-${progetto.id}-titolo`} key={progetto.id}>
-              <div className="progetto__media">
-                <button
-                  className="progetto__zoom"
-                  type="button"
-                  data-zoom
-                  data-didascalia={progetto.titolo}
-                  aria-label={`Ingrandisci la foto del progetto ${progetto.titolo}`}
-                >
-                  <img className="progetto__img" src={progetto.immagine} alt="" width="900" height="675" loading="lazy" />
-                </button>
-                <img
-                  className={progetto.logoQuadrato ? 'progetto__logo progetto__logo--quadrato' : 'progetto__logo'}
-                  src={progetto.logo}
-                  alt=""
-                  width={progetto.logoLarghezza}
-                  height={progetto.logoAltezza}
-                  loading="lazy"
-                />
-              </div>
-
-              <div className="progetto__corpo">
-                <ul className="progetto__etichette">
-                  <li className={`etichetta etichetta--${progetto.area}`}>{progetto.areaNome}</li>
-                  <li className="etichetta etichetta--stato">{progetto.stato}</li>
-                </ul>
-                <h3 id={`progetto-${progetto.id}-titolo`} className="progetto__titolo">{progetto.titolo}</h3>
-                <p className="progetto__testo">{progetto.testo}</p>
-                <a className="progetto__link" href={progetto.link} target="_blank" rel="noopener">
-                  {progetto.linkTesto}<span className="visually-hidden"> (si apre in una nuova scheda)</span>
-                </a>
-              </div>
-            </article>
-          ))}
-        </div>
-      </div>
+      <GalleriaProgetti progetti={progetti} />
     </section>
   );
 }

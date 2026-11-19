@@ -1,4 +1,5 @@
 import Scrittura from '@/components/Scrittura';
+import Pilastri from './Pilastri';
 
 const pilastri = [
   {
@@ -24,15 +25,7 @@ export default function CosaFacciamo() {
       <Scrittura id="cosa-facciamo-titolo" className="section__title">Cosa facciamo</Scrittura>
 
       <div className="cosa-facciamo__corpo">
-        <ul className="pilastri">
-          {pilastri.map((pilastro) => (
-            <li className="pilastro" key={pilastro.nome}>
-              <h3 className="pilastro__nome">{pilastro.nome}</h3>
-              <p className="pilastro__testo">{pilastro.testo}</p>
-              <img className="pilastro__img" src={pilastro.immagine} alt="" width="1200" height="675" loading="lazy" />
-            </li>
-          ))}
-        </ul>
+        <Pilastri pilastri={pilastri} />
 
         <p className="cosa-facciamo__descrizione" data-rivela>
           La Fondazione Antonio Campanile ETS costruisce strumenti concreti, come imprese sociali, servizi socio-ricreativi e percorsi di autonomia, perché le persone con disabilità e fragilità abbiano più occasioni di lavoro, relazione e partecipazione alla vita della comunità.
