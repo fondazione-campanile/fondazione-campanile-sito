@@ -1,5 +1,6 @@
 import './common.css';
 import './sito.css';
+import Footer from '@/components/Footer';
 
 export const metadata = {
   metadataBase: new URL('https://www.fondazionecampanile.it'),
@@ -36,7 +37,10 @@ export const viewport = {
 export default function RootLayout({ children }) {
   return (
     <html lang="it">
-      <body>{children}</body>
+      <body>
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
