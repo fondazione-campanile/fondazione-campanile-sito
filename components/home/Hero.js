@@ -1,3 +1,5 @@
+import Scrittura from '@/components/Scrittura';
+
 export default function Hero() {
   return (
     <section className="hero">
@@ -9,9 +11,7 @@ export default function Hero() {
         height="992"
         fetchPriority="high"
       />
-      <h1 className="hero__title" data-scrittura style={{ '--velocita': '0.025s' }}>
-        Il domani si prepara oggi.
-      </h1>
+    <Scrittura as="h1" className="hero__title" style={{ '--velocita': '0.025s' }}>Il domani si prepara oggi.</Scrittura>
       <p className="hero__subtitle" data-rivela style={{ '--ritardo': '0.7s' }}>
         Dare casa alle capacità di ciascuno
       </p>

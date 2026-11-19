@@ -1,8 +1,10 @@
+import Scrittura from '@/components/Scrittura';
+
 export default function ChiSiamo() {
   return (
     <section id="chi-siamo" className="section section--avorio chi-siamo" aria-labelledby="chi-siamo-titolo">
       <div className="chi-siamo__testo">
-        <h2 id="chi-siamo-titolo" className="section__title" data-scrittura>Chi siamo</h2>
+        <Scrittura id="chi-siamo-titolo" className="section__title">Chi siamo</Scrittura>
         <p data-rivela>
           La <strong>Fondazione Antonio Campanile ETS</strong> è un ente senza scopo di lucro nato nel 2026 a Valderice, in provincia di Trapani, per iniziativa della <strong>Fondazione Auxilium</strong>.
         </p>

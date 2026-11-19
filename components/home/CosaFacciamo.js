@@ -1,3 +1,5 @@
+import Scrittura from '@/components/Scrittura';
+
 const pilastri = [
   {
     nome: 'Imprese sociali e inserimento lavorativo',
@@ -19,7 +21,7 @@ const pilastri = [
 export default function CosaFacciamo() {
   return (
     <section id="cosa-facciamo" className="section section--blu cosa-facciamo" aria-labelledby="cosa-facciamo-titolo">
-      <h2 id="cosa-facciamo-titolo" className="section__title" data-scrittura>Cosa facciamo</h2>
+      <Scrittura id="cosa-facciamo-titolo" className="section__title">Cosa facciamo</Scrittura>
 
       <div className="cosa-facciamo__corpo">
         <ul className="pilastri">

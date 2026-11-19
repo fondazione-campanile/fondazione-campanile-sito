@@ -1,3 +1,5 @@
+import Scrittura from '@/components/Scrittura';
+
 const progetti = [
   {
     id: 'galleria',
@@ -34,7 +36,7 @@ const progetti = [
 export default function Progetti() {
   return (
     <section id="progetti" className="section section--blu progetti" aria-labelledby="progetti-titolo">
-      <h2 id="progetti-titolo" className="section__title" data-scrittura>Progetti</h2>
+      <Scrittura id="progetti-titolo" className="section__title">Progetti</Scrittura>
       <p className="fascia">Ogni progetto è un passo concreto: ecco cosa stiamo costruendo</p>
 
       <div className="progetti__galleria" data-rivela>

@@ -1,9 +1,10 @@
 import Link from 'next/link';
+import Scrittura from '@/components/Scrittura';
 
 export default function Dona() {
   return (
     <section id="dona" className="section section--terracotta-scuro dona" aria-labelledby="dona-titolo">
-      <h2 id="dona-titolo" className="section__title" data-scrittura>Fai una donazione</h2>
+      <Scrittura id="dona-titolo" className="section__title">Fai una donazione</Scrittura>
 
       <div className="dona__layout">
         <div className="dona__colonna">
