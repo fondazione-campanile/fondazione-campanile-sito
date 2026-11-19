@@ -1862,3 +1862,35 @@ a.metodo__pulsante {
 @keyframes intro-salto {
   to { opacity: 0; visibility: hidden; }
 }
+
+/* Donazione: importo libero ed errori */
+.dona-carta__altro {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.dona-carta__altro label {
+  font-weight: 600;
+  font-size: 0.8125rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.dona-carta__altro input {
+  width: 7rem;
+  padding: 0.375rem 0.75rem;
+  font: inherit;
+  color: var(--blu-notte);
+  background-color: var(--avorio);
+  border: 0;
+  border-radius: 0.375rem;
+}
+
+.metodo__pulsante:not(:disabled) {
+  cursor: pointer;
+}
+
+.dona-carta__errore {
+  font-weight: 600;
+}

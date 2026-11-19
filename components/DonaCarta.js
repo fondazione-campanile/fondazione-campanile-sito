@@ -1,75 +1,97 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
-// Da sostituire con i link Stripe (di test, poi definitivi)
-const LINK_LIBERO = 'https://buy.stripe.com/LINK-LIBERO';
-const IMPORTI = [
-  { valore: '10', linkMensile: 'https://buy.stripe.com/LINK-MENSILE-10' },
-  { valore: '25', linkMensile: 'https://buy.stripe.com/LINK-MENSILE-25' },
-  { valore: '50', linkMensile: 'https://buy.stripe.com/LINK-MENSILE-50' },
-];
-const IMPORTO_INIZIALE = '25';
+const IMPORTI = ['10', '25', '50'];
+const MINIMO = 5;
 
 export default function DonaCarta() {
-  const [pronto, setPronto] = useState(false);
   const [mensile, setMensile] = useState(false);
-  const [importo, setImporto] = useState(IMPORTO_INIZIALE);
+  const [importo, setImporto] = useState('25');
+  const [altro, setAltro] = useState('');
+  const [inCorso, setInCorso] = useState(false);
+  const [errore, setErrore] = useState('');
 
-  useEffect(() => {
-    setPronto(true);
-  }, []);
+  const euro = Number(importo === 'altro' ? altro : importo);
+  const valido = Number.isInteger(euro) && euro >= MINIMO;
 
-  const scegliFrequenza = (ogniMese) => {
-    setMensile(ogniMese);
-    if (ogniMese && importo === 'altro') {
-      setImporto(IMPORTO_INIZIALE);
+  const dona = async () => {
+    if (!valido) {
+      setErrore(`Inserisci un importo intero di almeno ${MINIMO} €.`);
+      return;
+    }
+
+    setErrore('');
+    setInCorso(true);
+
+    try {
+      const risposta = await fetch('/api/donazione', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ importo: euro, mensile }),
+      });
+      const dati = await risposta.json();
+      if (!risposta.ok) throw new Error(dati.errore);
+      window.location.href = dati.url;
+    } catch {
+      setErrore('Non è stato possibile avviare il pagamento. Riprova tra poco.');
+      setInCorso(false);
     }
   };
 
-  // Indirizzo e testo del pulsante, ricavati dallo stato
-  let indirizzo = LINK_LIBERO;
   let testo = 'Dona con carta';
-
-  if (pronto) {
-    if (mensile) {
-      indirizzo = IMPORTI.find((voce) => voce.valore === importo).linkMensile;
-      testo = `Dona ${importo} € al mese`;
-    } else if (importo !== 'altro') {
-      const url = new URL(LINK_LIBERO);
-      url.searchParams.set('prefilled_amount', Number(importo) * 100);
-      indirizzo = url.toString();
-      testo = `Dona ${importo} € con carta`;
-    }
+  if (inCorso) {
+    testo = 'Attendere…';
+  } else if (valido) {
+    testo = mensile ? `Dona ${euro} € al mese` : `Dona ${euro} € con carta`;
   }
 
   return (
     <>
-      <div className="dona-carta" hidden={!pronto}>
+      <div className="dona-carta">
         <fieldset className="dona-carta__gruppo">
           <legend className="dona-carta__legenda">Frequenza</legend>
           <label className="pillola">
-            <input className="pillola__input" type="radio" name="frequenza" checked={!mensile} onChange={() => scegliFrequenza(false)} /> Una volta
+            <input className="pillola__input" type="radio" name="frequenza" checked={!mensile} onChange={() => setMensile(false)} /> Una volta
           </label>
           <label className="pillola">
-            <input className="pillola__input" type="radio" name="frequenza" checked={mensile} onChange={() => scegliFrequenza(true)} /> Ogni mese
+            <input className="pillola__input" type="radio" name="frequenza" checked={mensile} onChange={() => setMensile(true)} /> Ogni mese
           </label>
         </fieldset>
 
         <fieldset className="dona-carta__gruppo">
           <legend className="dona-carta__legenda">Importo</legend>
-          {IMPORTI.map((voce) => (
-            <label className="pillola" key={voce.valore}>
-              <input className="pillola__input" type="radio" name="importo" checked={importo === voce.valore} onChange={() => setImporto(voce.valore)} /> {voce.valore} €
+          {IMPORTI.map((valore) => (
+            <label className="pillola" key={valore}>
+              <input className="pillola__input" type="radio" name="importo" checked={importo === valore} onChange={() => setImporto(valore)} /> {valore} €
             </label>
           ))}
-          <label className="pillola pillola--altro" hidden={mensile}>
+          <label className="pillola">
             <input className="pillola__input" type="radio" name="importo" checked={importo === 'altro'} onChange={() => setImporto('altro')} /> Altro
           </label>
         </fieldset>
+
+        {importo === 'altro' && (
+          <p className="dona-carta__altro">
+            <label htmlFor="importo-altro">Importo in euro</label>
+            <input
+              id="importo-altro"
+              type="number"
+              min={MINIMO}
+              step="1"
+              inputMode="numeric"
+              value={altro}
+              onChange={(evento) => setAltro(evento.target.value)}
+            />
+          </p>
+        )}
       </div>
 
-      <a className="metodo__pulsante dona-carta__vai" href={indirizzo}>{testo}</a>
+      <button className="metodo__pulsante dona-carta__vai" type="button" onClick={dona} disabled={inCorso}>
+        {testo}
+      </button>
+
+      {errore && <p className="dona-carta__errore" role="alert">{errore}</p>}
     </>
   );
 }
